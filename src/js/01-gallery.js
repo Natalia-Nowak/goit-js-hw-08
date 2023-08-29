@@ -6,6 +6,7 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const galleryList = document.querySelector('.gallery');
+galleryList.style.listStyle = 'none';
 
 const images = [];
 

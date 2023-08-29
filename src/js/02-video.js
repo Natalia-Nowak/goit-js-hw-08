@@ -7,7 +7,20 @@ const player = new Player(iframe);
 const currentTime = localStorage.getItem('videoplayer-current-time');
 
 console.log('pobieram zapisany czas ' + currentTime);
-player.setCurrentTime(currentTime);
+player
+  .getDuration()
+  .then(function (duration) {
+    // duration = the duration of the video in seconds
+    console.log(duration);
+    if (duration <= currentTime) {
+      player.setCurrentTime(0);
+    } else {
+      player.setCurrentTime(currentTime);
+    }
+  })
+  .catch(function (error) {
+    // an error occurred
+  });
 
 player.on(
   'timeupdate',
